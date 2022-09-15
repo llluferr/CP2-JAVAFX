@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Controle de Tarefas">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="22.0" layoutY="33.0" prefHeight="266.0" prefWidth="431.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="101.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="330.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="128.0" text="Título:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="113.0" text="Descrição:" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label text="Categoria:" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="80.0" prefHeight="31.0" prefWidth="107.0" text="Data:" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField onAction="#textFieldTitulo" GridPane.columnIndex="1" />
+                        <TextField onAction="#textFieldDescricao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField onAction="#textFieldCategoria" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <DatePicker onAction="#datePickerData" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Consulta de Tarefas">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="27.0" layoutY="53.0" prefHeight="160.0" prefWidth="431.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="181.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="250.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="181.0" text="Tarefas Concluidas:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="31.0" prefWidth="202.0" text="Tarefas Pendentes: " GridPane.rowIndex="1">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
