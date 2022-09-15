@@ -1,6 +1,5 @@
 package br.com.fiap;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
