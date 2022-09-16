@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fiap.PrimaryController">
   <tabs>
     <Tab text="Controle de Tarefas">
       <content>
@@ -49,12 +51,22 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <TextField onAction="#textFieldTitulo" GridPane.columnIndex="1" />
-                        <TextField onAction="#textFieldDescricao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField onAction="#textFieldCategoria" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <DatePicker onAction="#datePickerData" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="textFieldTitulo" GridPane.columnIndex="1" />
+                        <TextField fx:id="textFieldDescricao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textFieldCategoria" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <DatePicker fx:id="datePickerData" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <CheckBox fx:id="checkBoxConcluida" layoutX="377.0" layoutY="244.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="153.0" text="Concluida">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkBoxConcluida1" layoutX="377.0" layoutY="299.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="185.0" text="Nao Concluida">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </CheckBox>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -62,10 +74,11 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <GridPane layoutX="27.0" layoutY="53.0" prefHeight="160.0" prefWidth="431.0">
+                  <GridPane layoutX="27.0" layoutY="56.0" prefHeight="157.0" prefWidth="467.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="181.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="40.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="249.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
@@ -77,13 +90,13 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="31.0" prefWidth="202.0" text="Tarefas Pendentes: " GridPane.rowIndex="1">
+                        <ListView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                        <Label layoutX="10.0" layoutY="33.0" prefHeight="31.0" prefWidth="229.0" text="Tarefas  Nao Concluidas:" GridPane.columnIndex="2">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <TextField onAction="#lvCadastro" GridPane.columnIndex="1" />
-                        <TextField onAction="#lvCadastro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ListView prefHeight="118.0" prefWidth="248.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
