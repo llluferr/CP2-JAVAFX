@@ -40,7 +40,7 @@
             <Label text="Data" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldTitulo" GridPane.columnIndex="1" />
             <TextField fx:id="textFieldDescricao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button defaultButton="true" mnemonicParsing="false" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Button defaultButton="true" mnemonicParsing="false"  text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
             <DatePicker fx:id="datePickerData" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldCategoria" layoutX="93.0" layoutY="124.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
