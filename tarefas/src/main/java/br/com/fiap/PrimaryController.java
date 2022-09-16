@@ -1,8 +1,11 @@
 package br.com.fiap;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+
 import br.com.fiap.model.Cadastro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,22 +18,23 @@ public class PrimaryController{
     @FXML private TextField textFieldDescricao; 
     @FXML private TextField textFieldCategoria;
     @FXML private DatePicker datePickerData;
-
-    private List<Cadastro> lista = new ArrayList<>() { 
-    };
+    
+    
+    private List<Cadastro> lista = new ArrayList<>();
 
     private void validarCadastro() throws Exception{
-        
+
         try {
             String titulo = textFieldTitulo.getText();
             String descricao = textFieldDescricao.getText();
             String categoria = textFieldCategoria.getText();
             String data = datePickerData.getValue().toString();
             
+
             lista.add(carregarDadosFormulario(titulo, descricao, categoria, data));
-            mensagemErro("Tarefa cadastrada com sucesso.");
+            mensagemSucesso("Tarefa cadastrada com sucesso.");
         } catch (NumberFormatException e) {
-            mensagemSucesso("Tarefa nao cadastrada.");
+            mensagemErro("Tarefa nao cadastrada.");
         } 
     }
 
@@ -43,7 +47,6 @@ public class PrimaryController{
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.showAndWait();
 }
-
     private Cadastro carregarDadosFormulario(String titulo, String descricao, String categoria, String data) {
         return new Cadastro(
             textFieldTitulo.getText(), 
@@ -51,6 +54,10 @@ public class PrimaryController{
             textFieldCategoria.getText(), 
             datePickerData.getValue().toString());
         }
+   
+    public void initialize(URL url, ResourceBundle rb) throws Exception {
+        validarCadastro();
+    }
 
     public void verTarefas() throws IOException{
         App.setRoot("secondary");
