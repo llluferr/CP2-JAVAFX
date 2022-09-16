@@ -1,32 +1,25 @@
 package br.com.fiap;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-
-import javax.swing.text.Caret;
-
 import br.com.fiap.model.Cadastro;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class PrimaryController implements Initializable{
+public class PrimaryController{
 
     @FXML private TextField textFieldTitulo;
     @FXML private TextField textFieldDescricao; 
     @FXML private TextField textFieldCategoria;
     @FXML private DatePicker datePickerData;
 
-    private List<Cadastro> lista = new ArrayList();
+    private List<Cadastro> lista = new ArrayList<>() { 
+    };
 
-    private void validarCadastro() throws Exception {
+    private void validarCadastro() throws Exception{
         
         try {
             String titulo = textFieldTitulo.getText();
@@ -59,13 +52,12 @@ public class PrimaryController implements Initializable{
             datePickerData.getValue().toString());
         }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        
-    }
-
     public void verTarefas() throws IOException{
         App.setRoot("secondary");
+    }
+
+    public void voltarCadastro() throws IOException{
+        App.setRoot("primary");
     }
 }
 
