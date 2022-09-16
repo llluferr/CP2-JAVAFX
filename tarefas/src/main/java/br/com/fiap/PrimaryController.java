@@ -1,14 +1,17 @@
 package br.com.fiap;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.text.Caret;
 
 import br.com.fiap.model.Cadastro;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
@@ -19,40 +22,51 @@ public class PrimaryController implements Initializable{
     @FXML private TextField textFieldTitulo;
     @FXML private TextField textFieldDescricao; 
     @FXML private TextField textFieldCategoria;
-    @FXML private TextField textFieldConcluida;
     @FXML private DatePicker datePickerData;
-    @FXML private CheckBox checkBoxConcluida;
-    @FXML private ListView lvCadastro;
 
+    private List<Cadastro> lista = new ArrayList();
 
-    private List<Cadastro> lista = new ArrayList<Cadastro>(); 
-
-    private void concluidaCadastro() {
-
-            String titulo = textFieldTitulo.getText();
-            String descricao = textFieldDescricao.getText();
-            String categoria = textFieldCategoria.getText();
-            String data = datePickerData.getValue().toString();
-             
-            Cadastro cadastro = new Cadastro(titulo, descricao, categoria, data);
-            lista.add(cadastro);
+    private void validarCadastro() throws Exception {
         
-    }    
-
-    private void naoConcluidaCadastro(){
+        try {
             String titulo = textFieldTitulo.getText();
             String descricao = textFieldDescricao.getText();
             String categoria = textFieldCategoria.getText();
             String data = datePickerData.getValue().toString();
-             
-            Cadastro cadastro = new Cadastro(titulo, descricao, categoria, data);
-            lista.add(cadastro);
+            
+            lista.add(carregarDadosFormulario(titulo, descricao, categoria, data));
+            mensagemErro("Tarefa cadastrada com sucesso.");
+        } catch (NumberFormatException e) {
+            mensagemSucesso("Tarefa nao cadastrada.");
+        } 
     }
 
+    private void mensagemSucesso(String string) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.showAndWait();
+}
     
+    private void mensagemErro(String string) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.showAndWait();
+}
+
+    private Cadastro carregarDadosFormulario(String titulo, String descricao, String categoria, String data) {
+        return new Cadastro(
+            textFieldTitulo.getText(), 
+            textFieldDescricao.getText(), 
+            textFieldCategoria.getText(), 
+            datePickerData.getValue().toString());
+        }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        
+    }
+
+    public void verTarefas() throws IOException{
+        App.setRoot("secondary");
     }
 }
+
     
